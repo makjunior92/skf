@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Bare - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  
+
+</head>
+
+<style>
+  @font-face {
+  font-family: chevin;
+  src: url(chevin.woff2);
+}
+
+body{
+  font-family:chevin;
+}
+  
+  
+  #calculator{
+    background:#dce0e1;
+  }
+
+  .form-control{
+    width:50% !important;
+    border-radius:0 !important;
+  }
+  #result{
+    background:#485a64;
+    color: white;
+  }
+  #email{
+    width:70% !important;
+    margin:0 auto;
+  }
+  .btn{
+    border-radius: 0;
+    background:#88c008;
+    border:1px solid #88c008;
+    color: white;
+  }
+
+  .btn:hover{
+    background:#224466;
+    border:1px solid #224466;
+    color: white;
+
+  }
+
+
+  @media only screen and (max-width: 600px) {
+  #calculator{
+    text-align:center;
+  
+  }
+
+  .form-control{
+    margin:0 auto;
+  }
+  #result{
+    margin-top:40px;
+  }
+  #contact-skf{
+    margin-bottom:40px;
+  }
+}
+</style>
+
+<body>
+
+ 
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        
+       
+        
+        <!-- start :: calculator  -->
+
+            <div id="calculator" class="mt-5 p-5">
+
+              
+            <h3 class="mb-4">Savings Calculator</h3>
+              
+              
+            <form action="" class="form-row">
+
+              
+              <!-- left-section -->
+              
+              <div class="col-md-4 pr-5">
+                
+                  
+                <!-- Current Meantime between failures -->
+                  <div class="form-group">
+                    <label for="cmf">Current Meantime between failures (months)*</label>
+                    <input type="number" class="form-control" id="cmf" onkeyup="calculate()" required>
+                  </div>
+
+                 
+                 
+                 
+                  <!-- Current MTTR (hrs) - Time to restart production after failure -->
+                  <div class="form-group">
+                    <label for="mttrf">Current MTTR (hrs) - Time to restart production after failure*</label>
+                    <input type="number" class="form-control" id='mtrrf' onkeyup="calculate()" required>
+                  </div>
+
+
+                  <!-- Current Meantime between inspection (months) -->
+                  <div class="form-group">
+                    <label for="cmi">Current Meantime between inspection (months)*</label>
+                    <input type="number" class="form-control" id='cmi' onkeyup="calculate()" required>
+                  </div>
+
+
+                  <!-- Current MTTR (hrs) - Time to restart production after inspection -->
+                  <div class="form-group">
+                    <label for="mttri">Current MTTR (hrs) - Time to restart production after inspection*</label>
+                    <input type="number" class="form-control" id='mtrri' onkeyup="calculate()" required>
+                  </div>
+
+
+                  <!-- Estimated Production Revenue per hour (AUD) -->
+                  <div class="form-group">
+                    <label for="epr">Estimated Production Revenue per hour (AUD)*</label>
+                    <input type="number" class="form-control" id='epr' onkeyup="calculate()" required>
+                  </div>
+
+
+
+                 
+
+
+              
+              
+              </div>
+              
+              
+             <!-- middle-section -->
+              <div class="col-md-4 pr-5">
+               
+               
+                 <!-- Estimated Production loss per annum (AUD) -->
+                 <div class="form-group">
+                      <label for="epl">Estimated Production loss per annum (AUD)</label>
+                      <input type="number" class="form-control" id='epl' readonly>
+                 </div>
+
+
+                <!-- Material cost for bearing per annum (AUD) -->
+                <div class="form-group">
+                  <label for="mcb">Material cost for bearing per annum (AUD)*</label>
+                  <input type="number" class="form-control" id='mcb' onkeyup="calculate()" required>
+                </div>
+
+
+                <!-- Total Mechanical repair cost per annum (AUD) -->
+                <div class="form-group">
+                  <label for="tmrc">Total Mechanical repair cost per annum (AUD)*</label>
+                  <input type="number" class="form-control" id='tmrc' onkeyup="calculate()" required>
+                </div>
+
+                <!-- Total Maintenance costs per annum (AUD) -->
+                <div class="form-group">
+                  <label for="tmc">Total Maintenance costs per annum (AUD)</label>
+                  <input type="number" class="form-control" id='tmc' readonly>
+                </div>
+
+                <!-- New estimated Maintenance costs per annum (AUD) -->
+                <div class="form-group">
+                  <label for="nemc">New estimated Maintenance costs per annum (AUD)</label>
+                  <input type="number" class="form-control" id='nemc' readonly>
+                </div>
+
+
+
+
+                
+
+              
+              </div>
+
+            
+              
+             
+              <!-- right-section -->
+              <div id="result" class="col-md-4 text-center">
+                
+                <h3 class="mt-3 mb-3">See your results immediately</h3>
+
+                <div class="form-group text-center">
+                  <input type="email" class="form-control" id='email' placeholder="enter your email address" required>
+                </div>
+
+                <button class="btn" onclick="saveDiv('a','b')">Get Result</button>
+
+                <p class="mt-2 mb-0 p-4">By submitting your email address you agree that SKF may contact you further.</p>
+
+                <p class="mt-0 mb-0 p-4">What if you could draw reliable, accurate conclusions about the performance of your designs and prototypes, based on hard facts?</p>
+
+                <a id="contact-skf" href="#" class="btn" role="button" aria-pressed="true">Contact SKF</a>
+
+
+
+              
+              </div>
+
+            
+            
+            </form>
+
+            </div>
+
+        <!-- end :: calculator  -->
+      
+       
+      
+      
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <script src="jspdf.min.js"></script>
+
+  <script src="calculator.js"></script>
+
+  
+</body>
+
+</html>
